@@ -1,0 +1,37 @@
+Process:
+	SOBD4_1
+States:
+	19
+Transitions:
+	SOBD4_1 = Q0,
+	Q0	= (arrive.w -> Q1),
+	Q1	= (ended -> Q2
+		  |move.e -> Q3
+		  |pickup -> Q16
+		  |move.w -> Q17
+		  |putdown -> Q18),
+	Q2	= (reset -> Q1),
+	Q3	= (arrive.m -> Q4),
+	Q4	= (ended -> Q5
+		  |move.e -> Q6
+		  |pickup -> Q13
+		  |move.w -> Q14
+		  |putdown -> Q15),
+	Q5	= (reset -> Q4),
+	Q6	= (arrive.e -> Q7),
+	Q7	= (ended -> Q8
+		  |move.e -> Q9
+		  |pickup -> Q10
+		  |move.w -> Q11
+		  |putdown -> Q12),
+	Q8	= (reset -> Q7),
+	Q9	= (arrive.e -> Q7),
+	Q10	= (pickupsuccess -> Q7),
+	Q11	= (arrive.m -> Q4),
+	Q12	= (putfail -> Q7),
+	Q13	= (pickupfail -> Q4),
+	Q14	= (arrive.w -> Q1),
+	Q15	= (putfail -> Q4),
+	Q16	= (pickupfail -> Q1),
+	Q17	= (arrive.w -> Q1),
+	Q18	= (putsuccess -> Q1).
